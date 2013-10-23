@@ -6,4 +6,7 @@ describe "Product" do
 		@product = Product.new
 	end
 
+	it "should initialize" do
+		expect(@product).to be_a(Product)
+	end
 end
