@@ -70,6 +70,32 @@ describe 'MarkupCalculator' do
 			expected_markup = 1200 * 0.02
 			actual_markup.should be_within(0.0001).of(expected_markup)
 		end
+		it 'should be a float' do
+			markup = MarkupCalculator.productTypeMarkup(1200, 'electronics')
+			expect(markup).to be_a(Float)
+		end
+	end
+
+	describe 'calculating the total price with all markups' do
+		it 'should calculate the sum of individual markups on top of the base price' do
+			priceWithFlatMarkup = 1200
+			peopleMarkup = 60
+			materialMarkup = 100
+			expected_total = priceWithFlatMarkup + peopleMarkup + materialMarkup
+			actual_total = MarkupCalculator.totalMarkup(priceWithFlatMarkup, peopleMarkup, materialMarkup)
+			expect(actual_total).to equal(expected_total)
+		end
+
+		it 'should be a float' do
+			total = MarkupCalculator.totalMarkup(1299.99, 60.0, 100.0)
+			expect(total).to be_a(Float)
+		end
+
+		it 'should properly calculate the total output price' do
+			expected_total = 1591.58
+			actual_total = MarkupCalculator.markupCalc(@product)
+			actual_total.should be_within(0.0001).of(expected_total)
+		end
 	end
 end
 

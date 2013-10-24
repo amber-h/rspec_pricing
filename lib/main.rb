@@ -5,7 +5,7 @@ require_relative 'markupCalculator.rb'
 
 class Main
 
-	file = TxtFileInput.parseTxtFile('inputFiles/input1.txt')
+	file = TxtFileInput.parseTxtFile('inputFiles/input3.txt')
 	product = Product.new(file[:basePrice], file[:numPeople], file[:type])
 	output = '$' + MarkupCalculator.markupCalc(product).to_s
 	puts output
