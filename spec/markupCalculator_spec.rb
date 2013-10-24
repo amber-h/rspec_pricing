@@ -36,17 +36,40 @@ describe 'MarkupCalculator' do
 
 	end 
 
-	describe 'calculating the markup based on material type' do
+	describe 'determining the material type' do
 		it 'should determine the material type of the object' do
 			type = MarkupCalculator.sortProductType(@product.type)
 			expect(type).to eq('food')
+
+			type = MarkupCalculator.sortProductType('drugs')
+			expect(type).to eq('pharmaceuticals')
+
+			type = MarkupCalculator.sortProductType('books')
+			expect(type).to eq('other')
 		end
 
-		it 'should return a String' do
+		it 'should return a material type of type String' do
 			type = MarkupCalculator.sortProductType(@product.type)
 			expect(type).to be_a(String)
 		end
-
 	end 
+
+	describe 'calculating the markup based on material type' do
+		it 'should calculate the markup for a material type of food' do
+			actual_markup = MarkupCalculator.productTypeMarkup(1200, 'food')
+			expected_markup = 1200 * 0.13
+			actual_markup.should be_within(0.0001).of(expected_markup)
+		end
+		it 'should calculate the markup for a material type of pharmaceuticals' do
+			actual_markup = MarkupCalculator.productTypeMarkup(1200, 'drugs')
+			expected_markup = 1200 * 0.075
+			actual_markup.should be_within(0.0001).of(expected_markup)
+		end
+		it 'should calculate the markup for a material type of electronics' do
+			actual_markup = MarkupCalculator.productTypeMarkup(1200, 'electronics')
+			expected_markup = 1200 * 0.02
+			actual_markup.should be_within(0.0001).of(expected_markup)
+		end
+	end
 end
 
