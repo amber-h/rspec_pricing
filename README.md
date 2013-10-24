@@ -1,4 +1,5 @@
 - lib/main.rb is the main application file used to run the program
+- specify the name of the file input in main.rb
 
 Assumptions:
 
