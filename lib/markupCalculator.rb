@@ -45,13 +45,13 @@ class MarkupCalculator
 
 	def self.sortProductType(productType)
 		if $foodTypes.include?(productType)
-			productType = 'food'
+			'food'
 		elsif $pharmaceuticalTypes.include?(productType)
-			productType = 'pharmaceuticals'
+			'pharmaceuticals'
 		elsif $electronicsTypes.include?(productType)
-			productType = 'electronics'
+			'electronics'
 		else
-			productType = 'other'
+			'other'
 		end
 	end
 end
