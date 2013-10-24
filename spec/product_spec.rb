@@ -11,7 +11,16 @@ describe "Product" do
 	end
 
 	it 'should have a product type of type String' do
-		@product.type = 'food'
 		expect(@product.type).to be_a(String)
 	end
+
+	it 'should have a number of people of type Integer' do
+		expect(@product.numPeople).to be_a(Integer)
+	end
+
+	it 'should have a base price of type float' do
+		expect(@product.basePrice).to be_a(Float)
+	end
+
+
 end
