@@ -1,21 +1,8 @@
+require_relative 'listofMaterials.rb'
+
 class MarkupCalculator
 	FLAT_MARKUP = 0.05
 	PEOPLE_MARKUP = 0.012
-
-	$materialsMarkup = {}
-	$materialsMarkup[:pharmaceuticals] = 0.075
-	$materialsMarkup[:food] = 0.13
-	$materialsMarkup[:electronics] = 0.02
-	$materialsMarkup[:other] = 0
-
-	$foodTypes = []
-	$foodTypes.push('food')
-
-	$pharmaceuticalTypes = []
-	$pharmaceuticalTypes.push('drugs')
-
-	$electronicsTypes = []
-	$electronicsTypes.push('electronics')
 
 	def self.markupCalc(product)
 		flatM = flatMarkup(product.basePrice)
