@@ -1,4 +1,4 @@
-module TxtFileInput
+class TxtFileInput
 
 	def self.parseTxtFile(txtFile)
 	 	fileLines = readTxtFile(txtFile)
