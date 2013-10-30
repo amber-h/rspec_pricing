@@ -12,8 +12,7 @@ class MarkupCalculator
 	end
 
 	def self.flatMarkup(basePrice)
-		hello = basePrice * ( 1 + FLAT_MARKUP )
-		basePrice*( 1 + 0.05 )
+		basePrice*( 1 + FLAT_MARKUP )
 	end
 
 	def self.peopleMarkup(priceWithFlatMarkup, numPeople)

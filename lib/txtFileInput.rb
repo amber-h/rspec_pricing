@@ -15,6 +15,7 @@ class TxtFileInput
 	 	fileOutput[:numPeople] = fileLines[1].strip.to_i
 	 	fileOutput[:type] = fileLines[2].strip
 	 	fileOutput
+
 	end
 
 end
